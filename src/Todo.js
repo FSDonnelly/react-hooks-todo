@@ -7,30 +7,37 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
+import useToggle from './hooks/useToggleState';
+
 function Todo({ task, completed, removeTodo, id, toggleTodo }) {
+    const [isEditing, toggle] = useToggle(false)
     return (
         <ListItem>
-            <Checkbox
-                checked={completed}
-                tabIndex={-1}
-                onClick={() => toggleTodo(id)}
-            />
-            <ListItemText
-                style={{ textDecoration: completed ? "line-through" : "none" }}
-            >
-                {task}
-            </ListItemText>
-            <ListItemSecondaryAction>
-                <IconButton aria-label="Edit">
-                    <EditIcon />
-                </IconButton>
-                <IconButton
-                    aria-label="Delete"
-                    onClick={() => removeTodo(id)}
-                >
-                    <DeleteIcon />
-                </IconButton>
-            </ListItemSecondaryAction>
+            {isEditing ? <h1>Edit Task!</h1> :
+                (
+                    <>         <Checkbox
+                        checked={completed}
+                        tabIndex={-1}
+                        onClick={() => toggleTodo(id)}
+                    />
+                        <ListItemText
+                            style={{ textDecoration: completed ? "line-through" : "none" }}
+                        >
+                            {task}
+                        </ListItemText>
+                        <ListItemSecondaryAction>
+                            <IconButton aria-label="Edit">
+                                <EditIcon />
+                            </IconButton>
+                            <IconButton
+                                aria-label="Delete"
+                                onClick={() => removeTodo(id)}
+                            >
+                                <DeleteIcon />
+                            </IconButton>
+                        </ListItemSecondaryAction>
+                    </>
+                )}
         </ListItem>
     )
 };
