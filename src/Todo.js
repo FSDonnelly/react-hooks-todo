@@ -15,11 +15,12 @@ function Todo({ task, completed, removeTodo, id, toggleTodo }) {
         <ListItem>
             {isEditing ? <h1>Edit Task!</h1> :
                 (
-                    <>         <Checkbox
-                        checked={completed}
-                        tabIndex={-1}
-                        onClick={() => toggleTodo(id)}
-                    />
+                    <>
+                        <Checkbox
+                            checked={completed}
+                            tabIndex={-1}
+                            onClick={() => toggleTodo(id)}
+                        />
                         <ListItemText
                             style={{ textDecoration: completed ? "line-through" : "none" }}
                         >
