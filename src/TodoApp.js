@@ -62,7 +62,6 @@ function TodoApp() {
                 <Grid item xs={11} md={8} lg={4}>
                     <TodoForm addTodo={addTodo} />
                     <TodoList
-                        key={uuid()}
                         todos={todos}
                         removeTodo={removeTodo}
                         toggleTodo={toggleTodo}

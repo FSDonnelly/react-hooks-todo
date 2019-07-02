@@ -17,7 +17,6 @@ function Todo({ task, completed, removeTodo, id, toggleTodo, editTodo }) {
             {isEditing ? <EditTodoForm
                 editTodo={editTodo}
                 id={id}
-                key={id}
                 task={task}
                 toggleEditForm={toggle}
             /> :
