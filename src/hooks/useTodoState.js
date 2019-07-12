@@ -25,4 +25,4 @@ export default initialTodos => {
             setTodos(updatedTodos);
         }
     }
-}
+};
