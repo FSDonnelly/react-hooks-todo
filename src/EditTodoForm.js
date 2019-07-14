@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import Textfield from '@material-ui/core/Textfield';
 
 import useInputState from './hooks/useInputState';
-import { TodosContext } from './context/todos.context';
+import { DispatchContext } from './context/todos.context';
 
 function EditTodoForm({ id, task, toggleEditForm }) {
-    const { dispatch } = useContext(TodosContext)
+    const dispatch = useContext(DispatchContext)
     const [value, handleChange, reset] = useInputState(task);
     return (
         <form
